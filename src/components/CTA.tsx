@@ -1,41 +1,51 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Rocket } from "lucide-react";
 
 const CTA = () => {
   return (
     <section className="py-24 px-4 relative overflow-hidden">
-      {/* Glow effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px] animate-glow" />
+      {/* Animated tech background */}
+      <div className="absolute inset-0 tech-grid opacity-30" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[200px] animate-glow" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[180px] animate-glow" style={{ animationDelay: "1s" }} />
       
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 backdrop-blur-sm border border-accent/20 mb-8 animate-scale-in">
-          <Sparkles className="w-4 h-4 text-accent" />
-          <span className="text-sm font-medium">Oferta por tempo limitado</span>
+        <div className="inline-flex items-center gap-2 px-5 py-2 border border-accent/50 mb-8 animate-scale-in bg-card/30 backdrop-blur-xl">
+          <div className="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_10px_hsl(330_100%_60%)]" />
+          <span className="text-sm font-mono font-bold text-accent uppercase tracking-wider">Limited Beta Access</span>
         </div>
         
-        <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in">
-          Pronto Para
-          <span className="text-gradient"> Decolar?</span>
+        <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in tracking-tight">
+          Entre no
+          <span className="text-gradient block mt-2">Futuro Agora</span>
         </h2>
         
-        <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-in">
-          Junte-se a milhares de empresas que já estão crescendo exponencialmente. 
-          Comece gratuitamente hoje mesmo.
+        <p className="text-xl text-foreground/60 mb-10 max-w-2xl mx-auto animate-fade-in font-light leading-relaxed">
+          Acesso exclusivo à tecnologia que vai revolucionar sua indústria. 
+          Vagas limitadas para early adopters.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in">
           <Button 
             size="lg" 
-            className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-10 py-7 text-lg group glow-accent"
+            className="bg-accent hover:bg-accent/80 text-accent-foreground font-bold px-12 py-7 text-lg group border border-accent/50 glow-accent uppercase tracking-wide transition-all"
           >
-            Começar Gratuitamente
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <Rocket className="mr-2 w-5 h-5" />
+            Começar Beta
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
           </Button>
         </div>
         
-        <p className="mt-6 text-sm text-muted-foreground animate-fade-in">
-          ✨ Não é necessário cartão de crédito • Cancele quando quiser
-        </p>
+        <div className="mt-8 flex items-center justify-center gap-6 text-sm font-mono animate-fade-in">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_hsl(180_100%_50%)]" />
+            <span className="text-primary/80">[ No Credit Card ]</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_hsl(180_100%_50%)]" />
+            <span className="text-primary/80">[ 5min Setup ]</span>
+          </div>
+        </div>
       </div>
     </section>
   );

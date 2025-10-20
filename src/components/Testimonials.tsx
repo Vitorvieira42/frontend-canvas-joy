@@ -1,38 +1,43 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
+import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Maria Silva",
-    role: "CEO, TechStart",
-    content: "Transformou completamente nossa operação. ROI de 300% em 6 meses!",
-    rating: 5
+    name: "Dr. Ana Silva",
+    role: "CTO • Quantum Labs",
+    content: "Implementação em 48h. Performance 10x superior. ROI absurdo.",
+    metric: "+300% ROI"
   },
   {
-    name: "João Santos",
-    role: "Diretor, Innovation Co",
-    content: "A melhor decisão que tomamos este ano. Equipe e suporte excepcionais.",
-    rating: 5
+    name: "Marcus Chen",
+    role: "CEO • Neural Systems",
+    content: "A IA mais avançada que já utilizamos. Transformou nossa operação.",
+    metric: "99.9% Uptime"
   },
   {
-    name: "Ana Costa",
-    role: "Founder, Digital Plus",
-    content: "Resultados além das expectativas. Simplicidade e poder em perfeita harmonia.",
-    rating: 5
+    name: "Sofia Kovač",
+    role: "Lead Dev • CyberCore",
+    content: "Integração perfeita. Documentação impecável. Suporte instantâneo.",
+    metric: "< 10ms latency"
   }
 ];
 
 const Testimonials = () => {
   return (
-    <section className="py-24 px-4 relative">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-4 relative overflow-hidden">
+      <div className="absolute inset-0 tech-grid opacity-20" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Amado por
-            <span className="text-gradient"> Milhares de Clientes</span>
+          <div className="inline-block px-4 py-1 border border-accent/50 rounded mb-4 font-mono text-sm text-accent uppercase tracking-wider">
+            [ Testimonials ]
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+            Confiado por
+            <span className="text-gradient"> Tech Leaders</span>
           </h2>
-          <p className="text-xl text-muted-foreground">
-            Veja o que nossos clientes têm a dizer
+          <p className="text-xl text-foreground/60 font-light">
+            Empresas que constroem o futuro
           </p>
         </div>
         
@@ -40,19 +45,21 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="bg-card border-border hover:border-accent/50 transition-all duration-300 animate-scale-in"
+              className="bg-card/50 backdrop-blur-xl border-primary/30 hover:border-accent transition-all duration-300 animate-scale-in group relative overflow-hidden"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <CardContent className="p-6">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-accent text-accent" />
-                  ))}
-                </div>
-                <p className="text-lg mb-6 leading-relaxed">"{testimonial.content}"</p>
-                <div className="border-t border-border pt-4">
-                  <p className="font-semibold">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-3xl group-hover:bg-accent/20 transition-colors" />
+              <CardContent className="p-6 relative z-10">
+                <Quote className="w-10 h-10 text-primary/30 mb-4" />
+                <p className="text-lg mb-6 leading-relaxed font-light">"{testimonial.content}"</p>
+                <div className="border-t border-primary/20 pt-4 flex items-center justify-between">
+                  <div>
+                    <p className="font-bold tracking-tight">{testimonial.name}</p>
+                    <p className="text-sm text-foreground/50 font-mono">{testimonial.role}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-primary font-bold font-mono text-sm">{testimonial.metric}</p>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -60,20 +67,20 @@ const Testimonials = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-8 px-8 py-4 rounded-full bg-secondary/50 backdrop-blur-sm border border-border">
+          <div className="inline-flex items-center gap-8 px-10 py-5 border border-primary/30 bg-card/30 backdrop-blur-xl">
             <div className="text-center">
-              <div className="text-3xl font-bold text-gradient">10k+</div>
-              <div className="text-sm text-muted-foreground">Clientes Ativos</div>
+              <div className="text-4xl font-bold text-gradient font-mono">10K+</div>
+              <div className="text-xs text-foreground/50 font-mono uppercase tracking-wider mt-1">Active Users</div>
             </div>
-            <div className="w-px h-12 bg-border" />
+            <div className="w-px h-14 bg-primary/30" />
             <div className="text-center">
-              <div className="text-3xl font-bold text-gradient">4.9/5</div>
-              <div className="text-sm text-muted-foreground">Avaliação</div>
+              <div className="text-4xl font-bold text-gradient font-mono">4.9</div>
+              <div className="text-xs text-foreground/50 font-mono uppercase tracking-wider mt-1">Rating</div>
             </div>
-            <div className="w-px h-12 bg-border" />
+            <div className="w-px h-14 bg-primary/30" />
             <div className="text-center">
-              <div className="text-3xl font-bold text-gradient">99.9%</div>
-              <div className="text-sm text-muted-foreground">Uptime</div>
+              <div className="text-4xl font-bold text-gradient font-mono">99.9%</div>
+              <div className="text-xs text-foreground/50 font-mono uppercase tracking-wider mt-1">Uptime</div>
             </div>
           </div>
         </div>
